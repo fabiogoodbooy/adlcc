@@ -1,0 +1,11 @@
+{
+  "name": "adlcc-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies":[{
+    "path":"",
+    "proxyUrl": "https://devdactic.com/html"
+  }]
+}

@@ -1,0 +1,30 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu </ion-title>
+    
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item-divider color="primary">
+        Contact 
+      </ion-item-divider>
+        <button  menuClose ion-item (click)="sendEmail()">
+            envoyer un email
+            <ion-icon left name="mail"></ion-icon>
+        </button>
+        <ion-item-divider color="primary">
+          Rubrique
+        </ion-item-divider>
+      <button menuClose ion-item *ngFor="let l of list" (click)="openPage(l)">
+        {{l.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
