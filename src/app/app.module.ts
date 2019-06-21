@@ -16,15 +16,16 @@ import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { EmailComposer } from '@ionic-native/email-composer';
-import { ContactPage } from '../pages/contact/contact';
 import { FileOpener } from '@ionic-native/file-opener';
+import { Network } from '@ionic-native/network';
+import { FilesProvider } from '../services/files';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
     FilesPage,
-    ContactPage
   ],
   imports: [
     BrowserModule,
@@ -37,18 +38,19 @@ import { FileOpener } from '@ionic-native/file-opener';
     HomePage,
     ListPage,
     FilesPage,
-    ContactPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     RubriqueProvider,
+    FilesProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     File,
     FileTransfer,
     DocumentViewer,
     FileOpener,
-    EmailComposer
+    EmailComposer,
+    Network
   ]
 })
 export class AppModule {}

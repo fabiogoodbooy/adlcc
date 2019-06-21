@@ -6,6 +6,7 @@ import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-vi
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { FileOpener } from '@ionic-native/file-opener';
+import { FilesProvider } from '../../services/files';
 
 declare var cordova: any;
 /**
@@ -24,10 +25,7 @@ export class FilesPage {
   id:any;
   files:any;
  
-  constructor(private document : DocumentViewer,
-    private file : File,
-    private transfer:FileTransfer,
-    private platform :Platform,
+  constructor(private serviceFile : FilesProvider,
     public navCtrl: NavController,public loader: LoadingController, public navParams: NavParams, public service : RubriqueProvider) {
     
       this.id= navParams.get('id');
@@ -55,41 +53,8 @@ export class FilesPage {
     this.document.viewDocument(path+'assets/pdf1.pdf','application/pdf',options);
   }*/
   downloadPDF(title,namepdf,link){
-    let load = this.loader.create({
-      content :'Loading ... '
-  });
-  load.present().then(()=>{
-
- 
-
-    
-    let path = null;
-    if(this.platform.is('ios')){
-      path = this.file.documentsDirectory;
-    }else{
-      path =  cordova.file.externalDataDirectory;
-    }
-   
-    const option : DocumentViewerOptions={
-      title :title
-    };
-    
-    const transfer = this.transfer.create();
-  
-    transfer.download(link,path +namepdf).then(entry=>{
- 
-      let url = entry.toURL()
-    
-      
-      this.document.viewDocument(url,'application/pdf',option)
-      
-    }).catch(error=>{
-      console.log(error);
-    })
-  });
-    load.dismissAll();
-  } 
-    
+    this.serviceFile.downloadPDF(title,namepdf,link);
+  }
  
   bs(){
   

@@ -1,4 +1,3 @@
-import { ContactPage } from './../pages/contact/contact';
 import { FilesPage } from './../pages/files/files';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -19,8 +18,8 @@ export class MyApp {
   rootPage: any = HomePage;
   list:any;
   pages: Array<{title: string, component: any}>;
-  to : string = "nouhabenhloua1204@gmail.com";
-  cc : string = "nouhabenhloua1204@gmail.com";
+  to : string = "farouk_rabhi@msn.com";
+  cc : string = "farouk_rabhi@msn.com";
   subject : string ;
   body : string ;
   constructor(private emailComposer: EmailComposer,

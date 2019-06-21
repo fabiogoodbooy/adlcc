@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, LoadingController } from 'ionic-angular';
+import { NavController, Platform, LoadingController, ToastController } from 'ionic-angular';
 import { RubriqueProvider } from '../../services/rubrique';
-import { FileTransfer } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
-declare var cordova: any;
+import { Network } from '@ionic-native/network';
+import { FilesProvider } from '../../services/files';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -13,54 +12,32 @@ export class HomePage {
 
 files:any;
 
-  constructor(
-    private document : DocumentViewer,
-    private file : File,
-    private transfer:FileTransfer,
-    private platform :Platform,
-    public navCtrl: NavController,public loader: LoadingController, public service : RubriqueProvider) {
+  constructor(private serviceFile : FilesProvider,
+    public toastController: ToastController,
+    private network: Network,
+    public navCtrl: NavController, public service : RubriqueProvider) {
   
    service.allfile().subscribe((data :any)=>{
       this.files= data;
       console.log(this.files);
      
     })
+  
+    let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+      const toast =  this.toastController.create({
+        message: 'network was disconnected :-(.',
+        duration: 2000
+      });
+      toast.present();
+      console.log('network was disconnected :-(');
+    });
+    let connectSubscription = this.network.onConnect().subscribe(() => {
+      console.log('network connected!');})
   }
   
   downloadPDF(title,namepdf,link){
-    let load = this.loader.create({
-      content :'Loading ... '
-  });
-  load.present().then(()=>{
+ this.serviceFile.downloadPDF(title,namepdf,link);
 
- 
-
-    
-    let path = null;
-    if(this.platform.is('ios')){
-      path = this.file.documentsDirectory;
-    }else{
-      path =  cordova.file.externalDataDirectory;
-    }
-   
-    const option : DocumentViewerOptions={
-      title :title
-    };
-    
-    const transfer = this.transfer.create();
-  
-    transfer.download(link,path +namepdf).then(entry=>{
- 
-      let url = entry.toURL()
-    
-      
-      this.document.viewDocument(url,'application/pdf',option)
-      
-    }).catch(error=>{
-      console.log(error);
-    })
-  });
-    load.dismissAll();
   } 
     
  
