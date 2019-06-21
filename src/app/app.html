@@ -1,6 +1,6 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
+  <ion-header >
+    <ion-toolbar color="cool">
       <ion-title>Menu </ion-title>
     
     </ion-toolbar>
@@ -8,14 +8,12 @@
 
   <ion-content>
     <ion-list>
-      <ion-item-divider color="primary">
-        Contact 
-      </ion-item-divider>
+     
         <button  menuClose ion-item (click)="sendEmail()">
-            envoyer un email
+            contact
             <ion-icon left name="mail"></ion-icon>
         </button>
-        <ion-item-divider color="primary">
+        <ion-item-divider color="slid">
           Rubrique
         </ion-item-divider>
       <button menuClose ion-item *ngFor="let l of list" (click)="openPage(l)">

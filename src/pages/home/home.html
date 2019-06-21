@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="cool">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,14 +8,17 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-  <div *ngFor=" let y of file">
-    {{y.title}}
-  </div>
+  <ion-list *ngFor="let file of files">
+    <ion-item>
+      <a ion-item href="https://devdactic.com/html/5-simple-hacks-LBT.pdf">
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/pdfimg.png">
+      </ion-thumbnail>
+      <h2>{{file.namefile}}</h2>
+      <p>{{file.description}}</p>
+    </a>
+          <ion-icon name="download" item-end color="cool" (click)="downloadPDF(file.title,file.namefile,file.URL)"></ion-icon>
+      
+    </ion-item>
+  </ion-list>
 </ion-content>
