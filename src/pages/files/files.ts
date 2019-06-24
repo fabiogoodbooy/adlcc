@@ -38,20 +38,7 @@ export class FilesPage {
       
     })
   }
-  /*openlocalPDF(){
-    let path = null;
-    if(this.platform.is('ios')){
-      path = this.file.documentsDirectory;
-      
-    }else{
-      path = this.file.dataDirectory
-     
-    }
-    const options : DocumentViewerOptions={
-      title :'My PDF'
-    };
-    this.document.viewDocument(path+'assets/pdf1.pdf','application/pdf',options);
-  }*/
+
   downloadPDF(title,namepdf,link){
     this.serviceFile.downloadPDF(title,namepdf,link);
   }

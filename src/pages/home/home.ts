@@ -12,6 +12,7 @@ export class HomePage {
 
 files:any;
 
+ 
   constructor(private serviceFile : FilesProvider,
     public toastController: ToastController,
     private network: Network,
