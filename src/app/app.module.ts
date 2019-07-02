@@ -19,6 +19,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { FileOpener } from '@ionic-native/file-opener';
 import { Network } from '@ionic-native/network';
 import { FilesProvider } from '../services/files';
+import { DocumentsPage } from '../pages/documents/documents';
+import { GalleriePage } from '../pages/gallerie/gallerie';
+import { ContactPage } from '../pages/contact/contact';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FilesProvider } from '../services/files';
     HomePage,
     ListPage,
     FilesPage,
+    DocumentsPage,
+    GalleriePage,
+    ContactPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,9 @@ import { FilesProvider } from '../services/files';
     HomePage,
     ListPage,
     FilesPage,
+    DocumentsPage,
+    GalleriePage,
+    ContactPage
   ],
   providers: [
     StatusBar,

@@ -1,13 +1,15 @@
+import { HomePage } from './../pages/home/home';
 import { FilesPage } from './../pages/files/files';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { RubriqueProvider } from '../services/rubrique';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { DocumentsPage } from '../pages/documents/documents';
+import { ContactPage } from '../pages/contact/contact';
+import { GalleriePage } from '../pages/gallerie/gallerie';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-  list:any;
+  
   pages: Array<{title: string, component: any}>;
   to : string = "farouk_rabhi@msn.com";
   cc : string = "farouk_rabhi@msn.com";
@@ -25,11 +27,7 @@ export class MyApp {
   constructor(private emailComposer: EmailComposer,
     service : RubriqueProvider,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-    service.allrubrique().subscribe((data :any)=>
-    {
-      this.list = data;
-      console.log(this.list);
-    } )
+    
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -47,7 +45,7 @@ export class MyApp {
     });
   }
 
-  openPage(rubrique) {
+  openRubric(rubrique) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(FilesPage,{
@@ -74,5 +72,16 @@ export class MyApp {
      // Send a text message using default options
      this.emailComposer.open(email);
   }
-
+  goHome(){
+    this.nav.setRoot(HomePage);
+  }
+  goDocuments(){
+    this.nav.setRoot(DocumentsPage);
+  }
+  goContact(){
+    this.nav.setRoot(ContactPage);
+  }
+  goGallerie(){
+    this.nav.setRoot(GalleriePage)
+  }
 }

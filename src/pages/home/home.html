@@ -1,3 +1,11 @@
+<!--<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/log.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>-->
+
 <ion-header>
   <ion-navbar color="cool">
     <button ion-button menuToggle>
@@ -7,7 +15,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let file of files">
+  <!--<ion-list *ngFor="let file of files">
     <ion-item>
       <a ion-item href="https://devdactic.com/html/5-simple-hacks-LBT.pdf">
       <ion-thumbnail item-start>
@@ -19,5 +27,31 @@
           <ion-icon name="download" item-end color="cool" (click)="downloadPDF(file.title,file.namefile,file.URL)"></ion-icon>
       
     </ion-item>
+    
   </ion-list>
+  -->
+    <ion-grid>
+      <ion-row>
+          <ion-col col-6 col-lg-4>
+            <ion-card class="fadeIn" (click)="goDocuments()">
+                <img src="../../assets/icon/pdf.png" >
+                <ion-card-title style="text-align: center">Documents</ion-card-title>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6 col-lg-4>
+            <ion-card class="fadeIn" (click)="goDocuments()">
+                <img src="../../assets/icon/gallery.png" >
+                <ion-card-title style="text-align: center">Gallerie</ion-card-title>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6 col-lg-4>
+            <ion-card class="fadeIn" (click)="goGallerie()">
+                <img src="../../assets/icon/addres.png" >
+               
+                <ion-card-title style="text-align: center">Adresse</ion-card-title>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
 </ion-content>

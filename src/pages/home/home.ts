@@ -1,8 +1,11 @@
+import { ContactPage } from './../contact/contact';
+import { DocumentsPage } from './../documents/documents';
 import { Component } from '@angular/core';
 import { NavController, Platform, LoadingController, ToastController } from 'ionic-angular';
 import { RubriqueProvider } from '../../services/rubrique';
 import { Network } from '@ionic-native/network';
 import { FilesProvider } from '../../services/files';
+import { GalleriePage } from '../gallerie/gallerie';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +14,7 @@ import { FilesProvider } from '../../services/files';
 export class HomePage {
 
 files:any;
-
+splash = true;
  
   constructor(private serviceFile : FilesProvider,
     public toastController: ToastController,
@@ -40,7 +43,17 @@ files:any;
  this.serviceFile.downloadPDF(title,namepdf,link);
 
   } 
-    
+  ionViewDidLoad() {
+    setTimeout(() => this.splash = false, 4000);
+  }
  
-
+  goDocuments(){
+    this.navCtrl.setRoot(DocumentsPage);
+  }
+  goContact(){
+    this.navCtrl.setRoot(ContactPage);
+  }
+  goGallerie(){
+    this.navCtrl.setRoot(GalleriePage)
+  }
 }

@@ -8,17 +8,28 @@
 
   <ion-content>
     <ion-list>
-     
-        <button  menuClose ion-item (click)="sendEmail()">
-            contact
-            <ion-icon left name="mail"></ion-icon>
-        </button>
-        <ion-item-divider color="slid">
-          Rubrique
-        </ion-item-divider>
-      <button menuClose ion-item *ngFor="let l of list" (click)="openPage(l)">
-        {{l.title}}
+      <img src="../assets/sidemenu.png">
+
+      <button   menuClose ion-item (click)="goHome()" >
+          <ion-icon color="multicolor" name="home" > </ion-icon>
+        Acceuil 
       </button>
+       
+      <button menuClose ion-item (click)="goDocuments()">
+       <ion-icon color="multicolor" name="document"></ion-icon>
+       Documents
+      </button>
+
+      <button  menuClose ion-item (click)="goGallerie()">
+          <ion-icon  color="multicolor" name="image"></ion-icon>
+        Gallerie  
+      </button>
+
+      <button  menuClose ion-item (click)="goContact()">
+          <ion-icon  color="multicolor" name="mail"></ion-icon>
+        Contact  
+      </button>
+
     </ion-list>
   </ion-content>
 

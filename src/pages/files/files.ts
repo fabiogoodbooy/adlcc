@@ -1,14 +1,9 @@
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { RubriqueProvider } from '../../services/rubrique';
-import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
-import { File } from '@ionic-native/file';
-import { FileTransfer } from '@ionic-native/file-transfer';
-import { FileOpener } from '@ionic-native/file-opener';
 import { FilesProvider } from '../../services/files';
+import { DocumentsPage } from '../documents/documents';
 
-declare var cordova: any;
 /**
  * Generated class for the FilesPage page.
  *
@@ -45,6 +40,6 @@ export class FilesPage {
  
   bs(){
   
-  this.navCtrl.setRoot(HomePage)
+  this.navCtrl.setRoot(DocumentsPage)
 }
 }
