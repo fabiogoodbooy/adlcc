@@ -19,18 +19,24 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list *ngFor="let file of files">
-        <ion-item>
-          <a ion-item href="https://devdactic.com/html/5-simple-hacks-LBT.pdf">
+    <ion-list >
+        <ion-item-sliding *ngFor="let file of files">
+          <a ion-item href="http://adlcc.proxym-it.net{{file.URL}}">
           <ion-thumbnail item-start>
             <img src="../../assets/imgs/pdfimg.png">
           </ion-thumbnail>
           <h2>{{file.namefile}}</h2>
           <p>{{file.description}}</p>
         </a>
-              <ion-icon name="download" item-end color="cool" (click)="downloadPDF(file.title,file.namefile,file.URL)"></ion-icon>
+        <ion-item-options>
+            <button color="slid" (click)="downloadPDF(file.title,file.namefile,file.URL)">
+              <ion-icon name="download" color="cool" ></ion-icon>
+              Télecharger
+             </button>
+            </ion-item-options>
+             
           
-        </ion-item>
+        </ion-item-sliding>
       </ion-list>
 
 </ion-content>

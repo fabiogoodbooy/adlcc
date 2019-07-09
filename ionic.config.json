@@ -5,7 +5,7 @@
   },
   "type": "ionic-angular",
   "proxies":[{
-    "path":"",
-    "proxyUrl": "https://devdactic.com/html"
+    "path":"/api",
+    "proxyUrl": "http://adlcc.proxym-it.net/api"
   }]
 }

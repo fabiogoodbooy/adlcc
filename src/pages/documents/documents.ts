@@ -20,8 +20,10 @@ export class DocumentsPage {
   lists:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     service : RubriqueProvider) {
-      service.allrubrique().subscribe((data :any)=>
+      console.log(service.allrubrique());
+     service.allrubrique().subscribe((data :any)=>
     {
+     //console.log(data+"0"+files.length);
       this.lists = data;
       console.log(this.lists);
     } )

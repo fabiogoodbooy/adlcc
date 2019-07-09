@@ -20,6 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/call-number": "^4.20.0",
     "@ionic-native/core": "~4.20.0",
     "@ionic-native/document-viewer": "^4.20.0",
     "@ionic-native/email-composer": "^4.20.0",
@@ -31,6 +32,7 @@
     "@ionic-native/status-bar": "~4.20.0",
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "2.2.0",
+    "call-number": "1.0.1",
     "cordova-android": "7.1.4",
     "cordova-browser": "5.0.4",
     "cordova-plugin-device": "^2.0.2",
@@ -46,6 +48,7 @@
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "ionic-angular": "3.9.5",
+    "ionic-gallery-modal": "^0.2.7",
     "ionicons": "3.0.0",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
@@ -72,7 +75,8 @@
       "cordova-plugin-file-opener2": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
       "browser",

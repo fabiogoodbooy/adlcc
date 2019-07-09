@@ -5,11 +5,47 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="cool">
+      <ion-buttons left>
+          <button ion-button icon-only (click)="backHome()">
+            <ion-icon name="arrow-back" >
+              
+            </ion-icon> 
+       </button>
+      </ion-buttons> 
     <ion-title>contact</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <img src="../../assets/sidemenu.png">
+    <ion-card-content>
+        <ion-card-title>
+            جمعية التحدي 
+          </ion-card-title>
+          <ul>
 
+جمعية التحدي هي مؤسسة اجتماعية غير ربحية أهدافها الأساسية :
+<li>التوعية والتحسيس </li>
+<li>الإحاطة المادية والمعنوية بالمرضى</li>
+<li>القيام بحفلات وحملات دورية لفائدة المرضى</li>
+          </ul>
+<ion-list>
+  <ion-item (click)="sendEmail()" >
+    <ion-icon name="mail" size="large" color="cool"  slot="end"> </ion-icon>
+       
+        attahadicontrecancer@gmail.com
+  </ion-item>
+  <ion-item (click)="callPhone()">
+    <ion-icon color="cool" name="call" slot="end" ></ion-icon>
+    +216  23 907 587
+  </ion-item>
+  <ion-item href="m.me/attahadicontrecancer.tn">
+    <ion-icon color="cool" name="logo-facebook" solt="end"></ion-icon>
+    جمعية التحدي لمكافحة السرطان
+  </ion-item>
+</ion-list>
+</ion-card-content>
+</ion-card>
 </ion-content>

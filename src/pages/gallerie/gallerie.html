@@ -5,11 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>gallerie</ion-title>
+  <ion-navbar color="cool">
+    <ion-title text-center>gallerie</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="backHome()">
+          <ion-icon name="arrow-back" >
+            
+          </ion-icon> 
+     </button>
+     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-slides>
+        <ion-slide *ngFor="let img of [0,1,2,3]">
+          <img src="../../assets/imgs/{{ img }}.jpg" tappable >
+        </ion-slide>
+      </ion-slides>
 </ion-content>

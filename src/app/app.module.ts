@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,31 +21,33 @@ import { FilesProvider } from '../services/files';
 import { DocumentsPage } from '../pages/documents/documents';
 import { GalleriePage } from '../pages/gallerie/gallerie';
 import { ContactPage } from '../pages/contact/contact';
-
+import { SplashPage } from '../pages/splash/splash';
+import { CallNumber } from '@ionic-native/call-number';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     FilesPage,
     DocumentsPage,
     GalleriePage,
-    ContactPage
+    ContactPage,
+    SplashPage,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     FilesPage,
     DocumentsPage,
     GalleriePage,
-    ContactPage
+    ContactPage,
+    SplashPage,
   ],
   providers: [
     StatusBar,
@@ -59,7 +60,8 @@ import { ContactPage } from '../pages/contact/contact';
     DocumentViewer,
     FileOpener,
     EmailComposer,
-    Network
+    Network,
+    CallNumber,
   ]
 })
 export class AppModule {}

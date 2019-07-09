@@ -4,34 +4,26 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ListPage } from '../pages/list/list';
-import { RubriqueProvider } from '../services/rubrique';
-import { EmailComposer } from '@ionic-native/email-composer';
 import { DocumentsPage } from '../pages/documents/documents';
 import { ContactPage } from '../pages/contact/contact';
 import { GalleriePage } from '../pages/gallerie/gallerie';
-
+import { SplashPage } from '../pages/splash/splash'
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = SplashPage;
   
   pages: Array<{title: string, component: any}>;
-  to : string = "farouk_rabhi@msn.com";
-  cc : string = "farouk_rabhi@msn.com";
-  subject : string ;
-  body : string ;
-  constructor(private emailComposer: EmailComposer,
-    service : RubriqueProvider,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  
+  constructor(  public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
     
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: HomePage }
     ];
 
   }
@@ -52,26 +44,7 @@ export class MyApp {
       id : rubrique.id
     });
   }
-  sendEmail(){
-    this.emailComposer.isAvailable().then((available: boolean) =>{
-      if(available) {
-        
-      }
-     });
-     
-     let email = {
-       to: this.to,
-       cc: this.cc,
-       attachments: [
-       ],
-       subject: this.subject,
-       body: this.body,
-       isHtml: true
-     }
-     
-     // Send a text message using default options
-     this.emailComposer.open(email);
-  }
+  
   goHome(){
     this.nav.setRoot(HomePage);
   }
